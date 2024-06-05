@@ -1,0 +1,50 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" opened class="sidenav">
+    <mat-toolbar color="primary">ChatFSTT</mat-toolbar>
+    <mat-divider></mat-divider>
+    <mat-nav-list>
+      <!-- Assuming we keep this to display current chats or remove if not needed -->
+      <mat-list-item *ngFor="let chat of chats" (click)="navigateToChat(chat.message)">
+        <mat-icon matListIcon>chat</mat-icon>
+        <h4 matLine>{{ chat.message }}</h4>
+      </mat-list-item>
+    </mat-nav-list>
+    <mat-divider></mat-divider>
+    <mat-nav-list></mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()" aria-label="Toggle navigation">
+        <mat-icon>menu</mat-icon>
+      </button>
+      
+      <span>ChatFSTT</span>
+    </mat-toolbar>
+    <div class="content">
+      <div class="message-area">
+        <div class="chatbot-prompt">
+          <p class="prompt-text">Salut, bienvenue sur ChatFstt ! N'hésitez pas à m'envoyer un message. 😁</p>
+        </div>
+
+        <!-- Display messages here -->
+        <div *ngFor="let message of messages">
+          <div class="message user-message" *ngIf="message.sender === 'user'">
+            <p>{{ message.text }}</p>
+          </div>
+          <div class="message bot-message" *ngIf="message.sender === 'bot'">
+            <p>{{ message.text }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="input-area">
+        <mat-form-field class="example-full-width">
+          <input matInput  #messageInput>
+        </mat-form-field>
+        <button mat-icon-button color="accent" class="send-button" (click)="sendMessage(messageInput.value, false)">
+          <mat-icon>send</mat-icon>
+          <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
+        </button>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

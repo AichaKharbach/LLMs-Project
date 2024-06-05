@@ -1,0 +1,67 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0d0d0d;
+  color: #e0e0e0;
+}
+
+.home-container {
+  background-image: url('/assets/pp.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+.content-with-image {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.075);
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.content {
+  margin-right: 20px;
+}
+
+.content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-align: left;
+}
+
+.content h2 {
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-align: left;
+}
+
+.content button {
+  background-color: #007BFF;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 50px;
+}
+
+.content button:hover {
+  background-color: #033b77;
+}
+
+.side-image img {
+  max-width: 900px;
+  border-radius: 10px;
+}
